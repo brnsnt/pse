@@ -35,7 +35,7 @@ var CatalogueService = (function () {
     ], CatalogueService);
     return CatalogueService;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogue.service.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue.service.js.map
 
 /***/ }),
 
@@ -150,7 +150,7 @@ var CatalogueSearchComponent = (function () {
     return CatalogueSearchComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogue-search.component.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue-search.component.js.map
 
 /***/ }),
 
@@ -185,7 +185,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/main.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/main.js.map
 
 /***/ }),
 
@@ -229,7 +229,7 @@ var AppRoutingModule = (function () {
     ], AppRoutingModule);
     return AppRoutingModule;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/app-routing.module.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/app-routing.module.js.map
 
 /***/ }),
 
@@ -270,7 +270,7 @@ var AppComponent = (function () {
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/app.component.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/app.component.js.map
 
 /***/ }),
 
@@ -335,7 +335,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/app.module.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/app.module.js.map
 
 /***/ }),
 
@@ -390,7 +390,7 @@ var CatalogueEntryComponent = (function () {
     return CatalogueEntryComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogue-entry.component.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue-entry.component.js.map
 
 /***/ }),
 
@@ -407,7 +407,7 @@ var CatalogueEntry = (function () {
     }
     return CatalogueEntry;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogue-entry.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue-entry.js.map
 
 /***/ }),
 
@@ -465,7 +465,7 @@ var CatalogueSearchService = (function () {
     return CatalogueSearchService;
     var _a;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogue-search.service.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue-search.service.js.map
 
 /***/ }),
 
@@ -486,7 +486,7 @@ var CATALOGUES = [
     { tag: 'CHOPs', name: 'Swiss Surgery Classification', domain: 'chops', version: 'CHOP_2017' },
     { tag: 'ICDs', name: 'International Classification of Diseases', domain: 'icds', version: 'ICD10-2008' }
 ];
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogue.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue.js.map
 
 /***/ }),
 
@@ -540,7 +540,7 @@ var CataloguesComponent = (function () {
     return CataloguesComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/catalogues.component.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogues.component.js.map
 
 /***/ }),
 
@@ -585,7 +585,7 @@ var DashboardComponent = (function () {
     return DashboardComponent;
     var _a;
 }());
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/dashboard.component.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/dashboard.component.js.map
 
 /***/ }),
 
@@ -601,7 +601,7 @@ var DashboardComponent = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/home/brns/projects/pse-prototype/src/environment.js.map
+//# sourceMappingURL=/home/brns/projects/pse/src/environment.js.map
 
 /***/ }),
 

@@ -4,12 +4,11 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 
 import {AppComponent} from "./app.component";
-import {CataloguesComponent} from "./catalogues.component";
-import {CatalogueSearchComponent} from "./catalogue-search.component";
-import {DashboardComponent} from "./dashboard.component";
-import {CatalogueService} from "./catalogue.service";
+import {CataloguesComponent} from "./components/catalogues/catalogues.component";
+import {CatalogueSearchComponent} from "./components/catalogue-search/catalogue-search.component";
 import {AppRoutingModule} from "./app-routing.module";
-import {CatalogueEntryComponent} from "./catalogue-entry.component";
+import {CatalogueEntryComponent} from "./components/catalogue-entry/catalogue-entry.component";
+import {CatalogueService} from "./components/catalogues/catalogue.service";
 
 @NgModule({
     imports: [
@@ -21,7 +20,6 @@ import {CatalogueEntryComponent} from "./catalogue-entry.component";
     declarations: [
         AppComponent,
         CataloguesComponent,
-        DashboardComponent,
         CatalogueSearchComponent,
         CatalogueEntryComponent,
     ],

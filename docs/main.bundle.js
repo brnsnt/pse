@@ -1,6 +1,6 @@
 webpackJsonp([1,4],{
 
-/***/ 130:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46,22 +46,22 @@ var CatalogueService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__catalogue_service__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__catalogue_search_service__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__ = __webpack_require__(319);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__ = __webpack_require__(321);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_debounceTime__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_add_operator_distinctUntilChanged__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_Observable__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_Subject__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_Subject__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_Subject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__catalogues_catalogue_service__ = __webpack_require__(194);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CatalogueSearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -90,62 +90,94 @@ var CatalogueSearchComponent = (function () {
         this.catalogueSearchService = catalogueSearchService;
         this.route = route;
         this.location = location;
-        /*Produces observable event stream (of strings)*/
-        this.searchTerms = new __WEBPACK_IMPORTED_MODULE_11_rxjs_Subject__["Subject"]();
+        /**
+         * Produces observable event stream (of strings) that is
+         * bound to the input field.
+         * @type {Subject<string>}
+         */
+        this.searchTerms = new __WEBPACK_IMPORTED_MODULE_10_rxjs_Subject__["Subject"]();
     }
+    /**
+     * Init Component
+     */
     CatalogueSearchComponent.prototype.ngOnInit = function () {
         this.setupRoute();
         this.setupSearch();
         this.selectedCatalogueEntry = undefined;
     };
-    /* Push a search term into the observable stream.*/
+    /**
+     * Push a search term into the observable stream.
+     * @param {string} term
+     */
     CatalogueSearchComponent.prototype.search = function (term) {
         this.searchTerms.next(term);
     };
-    /*Navigate to last url*/
+    /**
+     * Navigate to last url - Just as example
+     */
     CatalogueSearchComponent.prototype.goBack = function () {
         this.location.back();
     };
+    /**
+     * Handles click on an entry in the preview.
+     * @param {CatalogueEntry} catalogueEntry - selected entry
+     */
     CatalogueSearchComponent.prototype.showCatalogueEntry = function (catalogueEntry) {
         this.selectedCatalogueEntry = catalogueEntry;
-        this.catalogueEntries = __WEBPACK_IMPORTED_MODULE_10_rxjs_Observable__["Observable"].of([]);
+        this.catalogueEntries = __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"].of([]);
     };
-    /* Set route to catalogue/:tag and bind this catalogue to the tag. */
+    /**
+     * Set route to catalogue/:tag and bind this.catalogue to the tag.
+     */
     CatalogueSearchComponent.prototype.setupRoute = function () {
         var _this = this;
         this.route.params
-            .switchMap(function (params) { return _this.catalogueService.getCatalogue(params['tag']); })
+            .switchMap(function (params) {
+            return _this.catalogueService.getCatalogue(params['tag']);
+        })
             .subscribe(function (catalogue) { return _this.catalogue = catalogue; });
     };
-    /*Set up observing of the searchTerms Subject*/
+    /**
+     * Add observer to the search terms to provide auto-completion.
+     */
     CatalogueSearchComponent.prototype.setupSearch = function () {
         var _this = this;
         this.catalogueEntries = this.searchTerms
-            .debounceTime(300) // wait 300ms after each keystroke before considering the term
+            .debounceTime(150) // wait 300ms after each keystroke before considering the term
             .distinctUntilChanged() // ignore if next search term is same as previous
             .switchMap(function (term) { return _this.doSearch(term); }) // switch to new observable each time the term changes
             .catch(function (error) { return _this.handleSearchError(error); });
     };
+    /**
+     *
+     * @param error
+     * @returns {Observable<CatalogueEntry[]>} - probably empty
+     */
     CatalogueSearchComponent.prototype.handleSearchError = function (error) {
         // TODO: add real error handling
         console.log(error);
-        return __WEBPACK_IMPORTED_MODULE_10_rxjs_Observable__["Observable"].of([]);
+        return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"].of([]);
     };
-    /** Get the search result from the Catalogue Search Service */
+    /**
+     *  Get the search result from the Catalogue Search Service.
+     *
+     * @param {string} term - some search text
+     * @returns {Observable<CatalogueEntry[]>} - empty if no term given.
+     */
     CatalogueSearchComponent.prototype.doSearch = function (term) {
         if (term)
             return this.catalogueSearchService.search(term, this.catalogue);
         else
-            return __WEBPACK_IMPORTED_MODULE_10_rxjs_Observable__["Observable"].of([]);
+            return __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"].of([]);
     };
     CatalogueSearchComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["e" /* Component */])({
             selector: 'catalogue-search',
-            template: __webpack_require__(526),
-            styles: [__webpack_require__(522)],
-            providers: [__WEBPACK_IMPORTED_MODULE_5__catalogue_search_service__["a" /* CatalogueSearchService */]]
+            template: __webpack_require__(525),
+            styles: [__webpack_require__(521)],
+            providers: [__WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */]]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__catalogue_service__["a" /* CatalogueService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__catalogue_search_service__["a" /* CatalogueSearchService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__catalogue_search_service__["a" /* CatalogueSearchService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */]) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_11__catalogues_catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_11__catalogues_catalogue_service__["a" /* CatalogueService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */]) === 'function' && _d) || Object])
     ], CatalogueSearchComponent);
     return CatalogueSearchComponent;
     var _a, _b, _c, _d;
@@ -176,7 +208,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(428);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(466);
 
 
 
@@ -194,8 +226,8 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__catalogue_search_component__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_catalogue_search_catalogue_search_component__ = __webpack_require__(306);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -215,7 +247,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  { path: 'catalogues',     component: CataloguesComponent }
  */
 var routes = [
-    { path: 'catalogue/:tag', component: __WEBPACK_IMPORTED_MODULE_2__catalogue_search_component__["a" /* CatalogueSearchComponent */] },
+    { path: 'catalogue/:tag', component: __WEBPACK_IMPORTED_MODULE_2__components_catalogue_search_catalogue_search_component__["a" /* CatalogueSearchComponent */] },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -283,12 +315,11 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(419);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__catalogues_component__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__catalogue_search_component__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dashboard_component__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__catalogue_service__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_routing_module__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__catalogue_entry_component__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_catalogues_catalogues_component__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_catalogue_search_catalogue_search_component__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing_module__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_catalogue_entry_catalogue_entry_component__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_catalogues_catalogue_service__ = __webpack_require__(194);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -309,7 +340,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var AppModule = (function () {
     function AppModule() {
     }
@@ -319,17 +349,16 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_9__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_7__app_routing_module__["a" /* AppRoutingModule */],
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__catalogues_component__["a" /* CataloguesComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__dashboard_component__["a" /* DashboardComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__catalogue_search_component__["a" /* CatalogueSearchComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__catalogue_entry_component__["a" /* CatalogueEntryComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__components_catalogues_catalogues_component__["a" /* CataloguesComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__components_catalogue_search_catalogue_search_component__["a" /* CatalogueSearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__components_catalogue_entry_catalogue_entry_component__["a" /* CatalogueEntryComponent */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_8__catalogue_service__["a" /* CatalogueService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_9__components_catalogues_catalogue_service__["a" /* CatalogueService */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
@@ -382,8 +411,8 @@ var CatalogueEntryComponent = (function () {
     CatalogueEntryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["e" /* Component */])({
             selector: 'catalogue-entry',
-            template: __webpack_require__(525),
-            styles: [__webpack_require__(521)],
+            template: __webpack_require__(524),
+            styles: [__webpack_require__(520)],
         }), 
         __metadata('design:paramtypes', [])
     ], CatalogueEntryComponent);
@@ -417,9 +446,9 @@ var CatalogueEntry = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(283);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(534);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(532);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(533);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(531);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CatalogueSearchService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -495,8 +524,8 @@ var CATALOGUES = [
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__catalogue_service__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__catalogue_service__ = __webpack_require__(194);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CataloguesComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -514,28 +543,31 @@ var CataloguesComponent = (function () {
     function CataloguesComponent(router, catalogueService) {
         this.router = router;
         this.catalogueService = catalogueService;
-        this.title = 'Eonum Cataloge Search';
     }
+    /**
+     * Init component
+     */
     CataloguesComponent.prototype.ngOnInit = function () {
-        this.getCatalogues();
+        var _this = this;
+        //Resolve promise and set catalogues
+        this.catalogueService.getCatalogues().then(function (catalogue) { return _this.catalogues = catalogue; });
     };
+    /**
+     * Navigate to the catalogue search of the selected catalogue
+     * @param {Catalogue} catalogue
+     */
     CataloguesComponent.prototype.onSelect = function (catalogue) {
         this.selectedCatalogue = catalogue;
         //navigate to catalogue search
         this.router.navigate(['/catalogue', this.selectedCatalogue.tag]);
     };
-    /**Resolve the promise from the overkill getter and set the catalogues**/
-    CataloguesComponent.prototype.getCatalogues = function () {
-        var _this = this;
-        this.catalogueService.getCatalogues().then(function (catalogue) { return _this.catalogues = catalogue; });
-    };
     CataloguesComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Component */])({
             selector: 'catalogues',
-            template: __webpack_require__(527),
-            styles: [__webpack_require__(523)],
+            template: __webpack_require__(526),
+            styles: [__webpack_require__(522)],
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__catalogue_service__["a" /* CatalogueService */]) === 'function' && _b) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__catalogue_service__["a" /* CatalogueService */]) === 'function' && _b) || Object])
     ], CataloguesComponent);
     return CataloguesComponent;
     var _a, _b;
@@ -545,51 +577,6 @@ var CataloguesComponent = (function () {
 /***/ }),
 
 /***/ 466:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__catalogue_service__ = __webpack_require__(130);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
-/**
- * Created by brns on 21.02.17.
- */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var DashboardComponent = (function () {
-    function DashboardComponent(catalogueService) {
-        this.catalogueService = catalogueService;
-        this.catalogues = [];
-    }
-    DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.catalogueService.getCatalogues()
-            .then(function (catalogues) { return _this.catalogues = catalogues; });
-    };
-    DashboardComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Component */])({
-            selector: 'my-dashboard',
-            template: __webpack_require__(528),
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__catalogue_service__["a" /* CatalogueService */]) === 'function' && _a) || Object])
-    ], DashboardComponent);
-    return DashboardComponent;
-    var _a;
-}());
-//# sourceMappingURL=/home/brns/projects/pse/src/dashboard.component.js.map
-
-/***/ }),
-
-/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -605,7 +592,7 @@ var environment = {
 
 /***/ }),
 
-/***/ 521:
+/***/ 520:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(89)();
@@ -623,7 +610,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 522:
+/***/ 521:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(89)();
@@ -641,7 +628,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 523:
+/***/ 522:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(89)();
@@ -659,35 +646,28 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 525:
+/***/ 524:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"entry\" *ngIf=\"catalogueEntry\">\n    <span class=\"badge\">{{catalogueEntry.code}}</span>\n    {{catalogueEntry.text}}\n</div>\n"
 
 /***/ }),
 
-/***/ 526:
+/***/ 525:
 /***/ (function(module, exports) {
 
 module.exports = "<div *ngIf=\"catalogue\">\n    <h2>{{catalogue.name}}\n        <span class=\"badge\">({{catalogue.tag}})</span>\n    </h2>\n    <div id=\"search-component\">\n        <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" />\n        <div class=\"results\">\n            <div *ngFor=\"let entry of catalogueEntries | async\"\n                  class=\"search-result\" >\n                <div (click)=\"showCatalogueEntry(entry)\">\n                <span class=\"badge\">{{entry.code}}</span> - {{entry.text | slice:0:50}}...\n                </div>\n            </div>\n        </div>\n    </div>\n    <catalogue-entry [catalogueEntry]=\"selectedCatalogueEntry\"></catalogue-entry>\n</div>\n\n"
 
 /***/ }),
 
-/***/ 527:
+/***/ 526:
 /***/ (function(module, exports) {
 
 module.exports = "<ul class=\"catalogues\">\n    <li *ngFor=\"let catalogue of catalogues\"\n        [class.selected]=\"catalogue === selectedCatalogue\"\n        (click)=\"onSelect(catalogue)\">\n        <span class=\"badge\">{{catalogue.tag}}</span>\n        {{catalogue.name}}\n    </li>\n</ul>\n<!--\n<div *ngIf=\"selectedCatalogue\">\n</div>\n-->"
 
 /***/ }),
 
-/***/ 528:
-/***/ (function(module, exports) {
-
-module.exports = "<h3>Catalogues</h3>\n<div class=\"grid grid-pad\">\n    <a *ngFor=\"let catalogue of catalogues\"\n       [routerLink]=\"['/catalogue', catalogue.tag]\"\n       class=\"col-1-4\">\n        <div class=\"module catalogue\">\n            <h4>{{catalogue.tag}}</h4>\n        </div>\n    </a>\n</div>"
-
-/***/ }),
-
-/***/ 554:
+/***/ 552:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(341);
@@ -695,5 +675,5 @@ module.exports = __webpack_require__(341);
 
 /***/ })
 
-},[554]);
+},[552]);
 //# sourceMappingURL=main.bundle.js.map

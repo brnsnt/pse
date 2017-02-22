@@ -3,11 +3,11 @@
  */
 import {Http, URLSearchParams} from "@angular/http";
 import {Injectable} from "@angular/core";
-import {CatalogueEntry} from "./catalogue-entry";
+import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import {Catalogue} from "./catalogue";
+import {Catalogue} from "../catalogues/catalogue";
 
 @Injectable()
 export class CatalogueSearchService {

@@ -3,7 +3,7 @@
  */
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {CatalogueSearchComponent} from "./catalogue-search.component";
+import {CatalogueSearchComponent} from "./components/catalogue-search/catalogue-search.component";
 
 /*
  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

@@ -10,8 +10,8 @@ import {CatalogueEntry} from "./catalogue-entry";
 @Component({
     moduleId: module.id,
     selector: 'catalogue-entry',
-    templateUrl: './catalogue-entry.component.html',
-    styleUrls: ['./catalogue-entry.component.css'],
+    templateUrl: 'catalogue-entry.component.html',
+    styleUrls: ['catalogue-entry.component.css'],
 })
 
 

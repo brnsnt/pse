@@ -1,11 +1,9 @@
 export class Catalogue {
     tag: string;
     name: string;
-    //TODO check special case, mdcs, partitions domain in DRGs catalogue. What's this?
     domain: string;
 
     //TODO get dynamic
-    //TODO check: ADRGS version === DRGs Versions ??
     version: string;
 }
 

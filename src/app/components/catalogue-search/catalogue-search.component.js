@@ -12,7 +12,7 @@ require("rxjs/add/operator/switchMap");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var common_1 = require("@angular/common");
-var catalogue_service_1 = require("./catalogue.service");
+var catalogue_service_1 = require("./../../catalogue.service.ts");
 var catalogue_search_service_1 = require("./catalogue-search.service");
 require("rxjs/add/observable/of");
 require("rxjs/add/operator/catch");
@@ -81,7 +81,7 @@ var CatalogueSearchComponent = (function () {
             templateUrl: './catalogue-search.component.html',
             styleUrls: ['./catalogue-search.component.css'],
             providers: [catalogue_search_service_1.CatalogueSearchService]
-        }), 
+        }),
         __metadata('design:paramtypes', [catalogue_service_1.CatalogueService, catalogue_search_service_1.CatalogueSearchService, router_1.ActivatedRoute, common_1.Location])
     ], CatalogueSearchComponent);
     return CatalogueSearchComponent;

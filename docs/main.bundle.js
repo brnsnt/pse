@@ -1,52 +1,13 @@
 webpackJsonp([1,4],{
 
-/***/ 194:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__catalogue__ = __webpack_require__(464);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CatalogueService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var CatalogueService = (function () {
-    function CatalogueService() {
-    }
-    /**Overkill promise getter for a constant.**/
-    CatalogueService.prototype.getCatalogues = function () {
-        return Promise.resolve(__WEBPACK_IMPORTED_MODULE_1__catalogue__["a" /* CATALOGUES */]);
-    };
-    CatalogueService.prototype.getCatalogue = function (tag) {
-        return this.getCatalogues()
-            .then(function (catalogues) { return catalogues.find(function (catalogue) { return catalogue.tag === tag; }); });
-    };
-    CatalogueService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
-        __metadata('design:paramtypes', [])
-    ], CatalogueService);
-    return CatalogueService;
-}());
-//# sourceMappingURL=/home/brns/projects/pse/src/catalogue.service.js.map
-
-/***/ }),
-
-/***/ 306:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap__ = __webpack_require__(323);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_of__ = __webpack_require__(319);
@@ -61,7 +22,7 @@ var CatalogueService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_Subject__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_Subject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_Subject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__catalogues_catalogue_service__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__shared_catalogue_service__ = __webpack_require__(306);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CatalogueSearchComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -133,15 +94,22 @@ var CatalogueSearchComponent = (function () {
         var _this = this;
         this.route.params
             .switchMap(function (params) {
-            return _this.catalogueService.getCatalogue(params['tag']);
+            console.log(params);
+            return _this.catalogueService.getCatalogue(params['domain']);
         })
-            .subscribe(function (catalogue) { return _this.catalogue = catalogue; });
+            .subscribe(function (catalogue) {
+            console.log(catalogue);
+            _this.catalogue = catalogue;
+            _this.setupSearch();
+            console.log(_this);
+        });
     };
     /**
      * Add observer to the search terms to provide auto-completion.
      */
     CatalogueSearchComponent.prototype.setupSearch = function () {
         var _this = this;
+        this.searchTerms = new __WEBPACK_IMPORTED_MODULE_10_rxjs_Subject__["Subject"]();
         this.catalogueEntries = this.searchTerms
             .debounceTime(150) // wait 300ms after each keystroke before considering the term
             .distinctUntilChanged() // ignore if next search term is same as previous
@@ -173,16 +141,55 @@ var CatalogueSearchComponent = (function () {
     CatalogueSearchComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["e" /* Component */])({
             selector: 'catalogue-search',
-            template: __webpack_require__(525),
+            template: __webpack_require__(524),
             styles: [__webpack_require__(521)],
             providers: [__WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */]]
         }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_11__catalogues_catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_11__catalogues_catalogue_service__["a" /* CatalogueService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */]) === 'function' && _d) || Object])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_11__shared_catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_11__shared_catalogue_service__["a" /* CatalogueService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__catalogue_search_service__["a" /* CatalogueSearchService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_common__["a" /* Location */]) === 'function' && _d) || Object])
     ], CatalogueSearchComponent);
     return CatalogueSearchComponent;
     var _a, _b, _c, _d;
 }());
 //# sourceMappingURL=/home/brns/projects/pse/src/catalogue-search.component.js.map
+
+/***/ }),
+
+/***/ 306:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__catalogue__ = __webpack_require__(464);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CatalogueService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CatalogueService = (function () {
+    function CatalogueService() {
+    }
+    /**Overkill promise getter for a constant.**/
+    CatalogueService.prototype.getCatalogues = function () {
+        return Promise.resolve(__WEBPACK_IMPORTED_MODULE_1__catalogue__["a" /* CATALOGUES */]);
+    };
+    CatalogueService.prototype.getCatalogue = function (domain) {
+        return this.getCatalogues()
+            .then(function (catalogues) { return catalogues.find(function (catalogue) { return catalogue.domain === domain; }); });
+    };
+    CatalogueService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(), 
+        __metadata('design:paramtypes', [])
+    ], CatalogueService);
+    return CatalogueService;
+}());
+//# sourceMappingURL=/home/brns/projects/pse/src/catalogue.service.js.map
 
 /***/ }),
 
@@ -208,7 +215,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(428);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(465);
 
 
 
@@ -226,8 +233,8 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_catalogue_search_catalogue_search_component__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(299);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_catalogue_search_catalogue_search_component__ = __webpack_require__(305);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppRoutingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -241,21 +248,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/*
- { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
- { path: 'dashboard',  component: DashboardComponent },
- { path: 'catalogues',     component: CataloguesComponent }
- */
 var routes = [
-    { path: 'catalogue/:tag', component: __WEBPACK_IMPORTED_MODULE_2__components_catalogue_search_catalogue_search_component__["a" /* CatalogueSearchComponent */] },
+    { path: 'catalogue/:domain', component: __WEBPACK_IMPORTED_MODULE_2__components_catalogue_search_catalogue_search_component__["a" /* CatalogueSearchComponent */] },
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppRoutingModule);
@@ -281,14 +283,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-/*
-* <h1>{{title}}</h1>
- <nav>
- <a routerLink="/dashboard">Dashboard</a>
- <a routerLink="/catalogues">Catalogues</a>
- </nav>
- <catalogues></catalogues>
- */
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'search.eonum.ch';
@@ -296,7 +290,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Component */])({
             selector: 'app-root',
-            template: "<h1>{{title}}</h1>\n<catalogues></catalogues>\n <router-outlet></router-outlet>\n",
+            template: "<h1>{{title}}</h1>\n<nav>\n <a routerLink=\"/catalogue/drgs\">DRGs</a>\n <a routerLink=\"/catalogue/adrgs\">ADRGs</a>\n <a routerLink=\"/catalogue/chops\">CHOPs</a>\n <a routerLink=\"/catalogue/icds\">ICDs</a>\n </nav>\n <router-outlet></router-outlet>\n",
+            styles: [__webpack_require__(519)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -313,13 +308,12 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(419);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_catalogues_catalogues_component__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_catalogue_search_catalogue_search_component__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_routing_module__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_catalogue_entry_catalogue_entry_component__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_catalogues_catalogue_service__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_catalogue_search_catalogue_search_component__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_routing_module__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_catalogue_entry_catalogue_entry_component__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_catalogue_service__ = __webpack_require__(306);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -339,7 +333,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var AppModule = (function () {
     function AppModule() {
     }
@@ -349,16 +342,15 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_7__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_6__app_routing_module__["a" /* AppRoutingModule */],
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__components_catalogues_catalogues_component__["a" /* CataloguesComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__components_catalogue_search_catalogue_search_component__["a" /* CatalogueSearchComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__components_catalogue_entry_catalogue_entry_component__["a" /* CatalogueEntryComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__components_catalogue_search_catalogue_search_component__["a" /* CatalogueSearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__components_catalogue_entry_catalogue_entry_component__["a" /* CatalogueEntryComponent */],
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_9__components_catalogues_catalogue_service__["a" /* CatalogueService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_8__shared_catalogue_service__["a" /* CatalogueService */]]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
@@ -411,7 +403,7 @@ var CatalogueEntryComponent = (function () {
     CatalogueEntryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["e" /* Component */])({
             selector: 'catalogue-entry',
-            template: __webpack_require__(524),
+            template: __webpack_require__(523),
             styles: [__webpack_require__(520)],
         }), 
         __metadata('design:paramtypes', [])
@@ -444,11 +436,11 @@ var CatalogueEntry = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(281);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(532);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__(530);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(531);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(529);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CatalogueSearchService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -513,70 +505,13 @@ var CATALOGUES = [
     { tag: 'DRGs', name: 'Diagnosis Related Groups', domain: 'drgs', version: 'V3.0' },
     { tag: 'ADRGs', name: 'Base DRG', domain: 'adrgs', version: 'V3.0' },
     { tag: 'CHOPs', name: 'Swiss Surgery Classification', domain: 'chops', version: 'CHOP_2017' },
-    { tag: 'ICDs', name: 'International Classification of Diseases', domain: 'icds', version: 'ICD10-2008' }
+    { tag: 'ICDs', name: 'International Classification of Diseases', domain: 'icds', version: 'ICD10-GM-2016' }
 ];
 //# sourceMappingURL=/home/brns/projects/pse/src/catalogue.js.map
 
 /***/ }),
 
 /***/ 465:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__catalogue_service__ = __webpack_require__(194);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CataloguesComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var CataloguesComponent = (function () {
-    function CataloguesComponent(router, catalogueService) {
-        this.router = router;
-        this.catalogueService = catalogueService;
-    }
-    /**
-     * Init component
-     */
-    CataloguesComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        //Resolve promise and set catalogues
-        this.catalogueService.getCatalogues().then(function (catalogue) { return _this.catalogues = catalogue; });
-    };
-    /**
-     * Navigate to the catalogue search of the selected catalogue
-     * @param {Catalogue} catalogue
-     */
-    CataloguesComponent.prototype.onSelect = function (catalogue) {
-        this.selectedCatalogue = catalogue;
-        //navigate to catalogue search
-        this.router.navigate(['/catalogue', this.selectedCatalogue.tag]);
-    };
-    CataloguesComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["e" /* Component */])({
-            selector: 'catalogues',
-            template: __webpack_require__(526),
-            styles: [__webpack_require__(522)],
-        }), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__catalogue_service__["a" /* CatalogueService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__catalogue_service__["a" /* CatalogueService */]) === 'function' && _b) || Object])
-    ], CataloguesComponent);
-    return CataloguesComponent;
-    var _a, _b;
-}());
-//# sourceMappingURL=/home/brns/projects/pse/src/catalogues.component.js.map
-
-/***/ }),
-
-/***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -589,6 +524,24 @@ var environment = {
     production: false
 };
 //# sourceMappingURL=/home/brns/projects/pse/src/environment.js.map
+
+/***/ }),
+
+/***/ 519:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(89)();
+// imports
+
+
+// module
+exports.push([module.i, ".selected {\n  background-color: #CFD8DC !important;\n  color: white;\n}\n.catalogues {\n  margin: 0 0 2em 0;\n  list-style-type: none;\n  padding: 0;\n  width: 25em;\n}\n.catalogues li {\n  cursor: pointer;\n  position: relative;\n  left: 0;\n  background-color: #EEE;\n  margin: .5em;\n  padding: .3em 0;\n  height: 1.6em;\n  border-radius: 4px;\n}\nnav a:hover {\n  background-color: #BBD8DC !important;\n  color: white;\n}\n.catalogues li:hover {\n  color: #607D8B;\n  background-color: #DDD;\n  left: .1em;\n}\n.catalogues .text {\n  position: relative;\n  top: -3px;\n}\nnav a {\n  display: inline-block;\n  font-size: small;\n  color: white;\n  padding: 0.8em 0.7em 0 0.7em;\n  background-color: #607D8B;\n  line-height: 1em;\n  position: relative;\n  left: -1px;\n  top: -4px;\n  height: 1.8em;\n  margin-right: .8em;\n  border-radius: 4px;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
@@ -628,46 +581,21 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 522:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(89)();
-// imports
-
-
-// module
-exports.push([module.i, ".selected {\n    background-color: #CFD8DC !important;\n    color: white;\n}\n.catalogues {\n    margin: 0 0 2em 0;\n    list-style-type: none;\n    padding: 0;\n    width: 25em;\n}\n.catalogues li {\n    cursor: pointer;\n    position: relative;\n    left: 0;\n    background-color: #EEE;\n    margin: .5em;\n    padding: .3em 0;\n    height: 1.6em;\n    border-radius: 4px;\n}\n.catalogues li.selected:hover {\n    background-color: #BBD8DC !important;\n    color: white;\n}\n.catalogues li:hover {\n    color: #607D8B;\n    background-color: #DDD;\n    left: .1em;\n}\n.catalogues .text {\n    position: relative;\n    top: -3px;\n}\n.catalogues .badge {\n    display: inline-block;\n    font-size: small;\n    color: white;\n    padding: 0.8em 0.7em 0 0.7em;\n    background-color: #607D8B;\n    line-height: 1em;\n    position: relative;\n    left: -1px;\n    top: -4px;\n    height: 1.8em;\n    margin-right: .8em;\n    border-radius: 4px 0 0 4px;\n}", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 524:
+/***/ 523:
 /***/ (function(module, exports) {
 
 module.exports = "<div class=\"entry\" *ngIf=\"catalogueEntry\">\n    <span class=\"badge\">{{catalogueEntry.code}}</span>\n    {{catalogueEntry.text}}\n</div>\n"
 
 /***/ }),
 
-/***/ 525:
+/***/ 524:
 /***/ (function(module, exports) {
 
 module.exports = "<div *ngIf=\"catalogue\">\n    <h2>{{catalogue.name}}\n        <span class=\"badge\">({{catalogue.tag}})</span>\n    </h2>\n    <div id=\"search-component\">\n        <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" />\n        <div class=\"results\">\n            <div *ngFor=\"let entry of catalogueEntries | async\"\n                  class=\"search-result\" >\n                <div (click)=\"showCatalogueEntry(entry)\">\n                <span class=\"badge\">{{entry.code}}</span> - {{entry.text | slice:0:50}}...\n                </div>\n            </div>\n        </div>\n    </div>\n    <catalogue-entry [catalogueEntry]=\"selectedCatalogueEntry\"></catalogue-entry>\n</div>\n\n"
 
 /***/ }),
 
-/***/ 526:
-/***/ (function(module, exports) {
-
-module.exports = "<ul class=\"catalogues\">\n    <li *ngFor=\"let catalogue of catalogues\"\n        [class.selected]=\"catalogue === selectedCatalogue\"\n        (click)=\"onSelect(catalogue)\">\n        <span class=\"badge\">{{catalogue.tag}}</span>\n        {{catalogue.name}}\n    </li>\n</ul>\n<!--\n<div *ngIf=\"selectedCatalogue\">\n</div>\n-->"
-
-/***/ }),
-
-/***/ 552:
+/***/ 550:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(341);
@@ -675,5 +603,5 @@ module.exports = __webpack_require__(341);
 
 /***/ })
 
-},[552]);
+},[550]);
 //# sourceMappingURL=main.bundle.js.map

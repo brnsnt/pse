@@ -1,8 +1,9 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-src/*/*.js
-src/*/*.js.map
+/dist
+/src/**/*.js
+/src/**/*.js.map
 /tmp
 
 # dependencies

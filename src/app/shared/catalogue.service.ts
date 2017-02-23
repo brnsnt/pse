@@ -10,8 +10,8 @@ export class CatalogueService {
     return Promise.resolve(CATALOGUES);
   }
 
-  getCatalogue(tag: string): Promise<Catalogue> {
+  getCatalogue(domain: string): Promise<Catalogue> {
     return this.getCatalogues()
-      .then(catalogues => catalogues.find(catalogue=> catalogue.tag === tag));
+      .then(catalogues => catalogues.find(catalogue=> catalogue.domain === domain));
   }
 }

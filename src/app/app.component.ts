@@ -3,20 +3,18 @@
  */
 import { Component } from '@angular/core';
 
-/*
-* <h1>{{title}}</h1>
- <nav>
- <a routerLink="/dashboard">Dashboard</a>
- <a routerLink="/catalogues">Catalogues</a>
- </nav>
- <catalogues></catalogues>
- */
 @Component({
     selector: 'app-root',
     template: `<h1>{{title}}</h1>
-<catalogues></catalogues>
+<nav>
+ <a routerLink="/catalogue/drgs">DRGs</a>
+ <a routerLink="/catalogue/adrgs">ADRGs</a>
+ <a routerLink="/catalogue/chops">CHOPs</a>
+ <a routerLink="/catalogue/icds">ICDs</a>
+ </nav>
  <router-outlet></router-outlet>
 `,
+  styleUrls: ['app.component.css']
 })
 
 export class AppComponent {

@@ -5,13 +5,8 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {CatalogueSearchComponent} from "./components/catalogue-search/catalogue-search.component";
 
-/*
- { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
- { path: 'dashboard',  component: DashboardComponent },
- { path: 'catalogues',     component: CataloguesComponent }
- */
 const routes: Routes = [
-    { path: 'catalogue/:tag', component: CatalogueSearchComponent },
+    { path: 'catalogue/:domain', component: CatalogueSearchComponent },
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],

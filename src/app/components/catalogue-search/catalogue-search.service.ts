@@ -7,7 +7,7 @@ import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import {Catalogue} from "../catalogues/catalogue";
+import {Catalogue} from "../../shared/catalogue";
 
 @Injectable()
 export class CatalogueSearchService {
@@ -15,6 +15,8 @@ export class CatalogueSearchService {
     private searchUrl = 'https://search.eonum.ch/de';  // URL to web api
 
     constructor(private http: Http) { }
+
+
 
     search(searchText: string, catalogue:Catalogue): Observable<CatalogueEntry[]> {
         let params = new URLSearchParams();

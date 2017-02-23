@@ -1,5 +1,5 @@
 import "rxjs/add/operator/switchMap";
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from "@angular/common";
 import {CatalogueSearchService} from "./catalogue-search.service";
@@ -10,8 +10,8 @@ import "rxjs/add/operator/distinctUntilChanged";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
 import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
-import {Catalogue} from "../catalogues/catalogue";
-import {CatalogueService} from "../catalogues/catalogue.service";
+import {Catalogue} from "../../shared/catalogue";
+import {CatalogueService} from "../../shared/catalogue.service";
 
 @Component({
   moduleId: module.id,
@@ -22,7 +22,7 @@ import {CatalogueService} from "../catalogues/catalogue.service";
 })
 
 
-export class CatalogueSearchComponent {
+export class CatalogueSearchComponent implements OnInit {
 
   /*Catalogue to search from*/
   catalogue: Catalogue;
@@ -84,9 +84,14 @@ export class CatalogueSearchComponent {
    */
   private setupRoute(): void {
     this.route.params
-      .switchMap((params: Params) =>
-        this.catalogueService.getCatalogue(params['tag']))
-      .subscribe(catalogue => this.catalogue = catalogue);
+      .switchMap((params: Params) =>{
+      console.log(params);
+        return this.catalogueService.getCatalogue(params['domain'])})
+      .subscribe(catalogue => {
+        console.log(catalogue)
+        this.catalogue = catalogue
+        this.setupSearch();
+        console.log(this)});
   }
 
 
@@ -94,6 +99,8 @@ export class CatalogueSearchComponent {
    * Add observer to the search terms to provide auto-completion.
    */
   private setupSearch(): void {
+
+    this.searchTerms = new Subject<string>();
     this.catalogueEntries = this.searchTerms
       .debounceTime(150)        // wait 300ms after each keystroke before considering the term
       .distinctUntilChanged()   // ignore if next search term is same as previous

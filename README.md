@@ -3,7 +3,6 @@
 - minimize build output
 - add sass/less compiler
 - add deploy script
-- adjust paths to scripts in index.html
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.

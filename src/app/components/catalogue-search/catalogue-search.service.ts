@@ -16,8 +16,6 @@ export class CatalogueSearchService {
 
     constructor(private http: Http) { }
 
-
-
     search(searchText: string, catalogue:Catalogue): Observable<CatalogueEntry[]> {
         let params = new URLSearchParams();
         params.set('search', searchText);
@@ -34,7 +32,7 @@ export class CatalogueSearchService {
     }
 
     private buildUrl(catalogue:Catalogue): string {
-        return this.searchUrl + '/' + catalogue.domain + '/' + catalogue.version + '/search'
+        return this.searchUrl + '/' + catalogue.domain + '/' + catalogue.versions[0] + '/search'
     }
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only

@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
  <a routerLink="/catalogue/adrgs">ADRGs</a>
  <a routerLink="/catalogue/chops">CHOPs</a>
  <a routerLink="/catalogue/icds">ICDs</a>
+ <a routerLink="/search">Search Form</a>
  </nav>
  <router-outlet></router-outlet>
 `,

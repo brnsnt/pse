@@ -18,7 +18,6 @@ import {CatalogueService} from "../../shared/catalogue.service";
   selector: 'catalogue-search',
   templateUrl: 'catalogue-search.component.html',
   styleUrls: ['catalogue-search.component.css'],
-  providers: [CatalogueSearchService]
 })
 
 
@@ -85,13 +84,11 @@ export class CatalogueSearchComponent implements OnInit {
   private setupRoute(): void {
     this.route.params
       .switchMap((params: Params) =>{
-      console.log(params);
         return this.catalogueService.getCatalogue(params['domain'])})
       .subscribe(catalogue => {
-        console.log(catalogue)
         this.catalogue = catalogue
-        this.setupSearch();
-        console.log(this)});
+        this.setupSearch()
+      });
   }
 
 

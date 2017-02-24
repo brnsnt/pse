@@ -4,9 +4,13 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {CatalogueSearchComponent} from "./components/catalogue-search/catalogue-search.component";
+import {SearchFormComponent} from "./components/search-form/search-form.component";
+import {SearchComponent} from "./components/search/search.component";
 
 const routes: Routes = [
-    { path: 'catalogue/:domain', component: CatalogueSearchComponent },
+  { path: 'catalogue/:domain', component: CatalogueSearchComponent },
+
+  { path: 'search', component: SearchComponent },
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],

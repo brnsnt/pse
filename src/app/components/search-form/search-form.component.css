@@ -10,11 +10,30 @@
   cursor: pointer;
   overflow: hidden;
 }
-#search-box{
+input {
   width: 610px;
   height: 30px;
   background-color: lightgray;
   color: darkslategray;
+}
+option{
+  color:snow;
+}
+.form-group{
+  padding: 1em;
+  font-family: monospace;
+
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+.ng-invalid:not(form)  {
+  border-left: 8px solid #a94442; /* red */
+}
+
+label {
+  font-size: 1.3em;
 }
 
 .selected {
@@ -44,9 +63,8 @@
 .results .text {
   position: relative;
 }
-.results .badge {
-  display: inline-block;
-  font-size: small;
+.button {
+  font-size: 1.2em;
   color: white;
   background-color: #607D8B;
   line-height: 1em;

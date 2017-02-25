@@ -9,7 +9,7 @@ import {SearchComponent} from "./components/search/search.component";
 
 const routes: Routes = [
   { path: 'catalogue/:domain', component: CatalogueSearchComponent },
-
+  { path: '',   redirectTo: '/search', pathMatch: 'full' },
   { path: 'search', component: SearchComponent },
 ];
 @NgModule({

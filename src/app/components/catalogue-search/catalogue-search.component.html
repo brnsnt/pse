@@ -1,3 +1,4 @@
+
 <div *ngIf="catalogue">
     <h2>{{catalogue.name}}
         <span class="badge">({{catalogue.tag}})</span>
@@ -5,15 +6,17 @@
     <div id="search-component">
         <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
         <div class="results">
-            <div *ngFor="let entry of catalogueEntries | async"
-                  class="search-result" >
-                <div (click)="showCatalogueEntry(entry)">
-                <span class="badge">{{entry.code}}</span> - {{entry.text | slice:0:50}}...
-                </div>
+          <div *ngFor="let entry of catalogueEntries | async"
+               class="search-result" >
+            <div (click)="showCatalogueEntry(entry)">
+              <span class="badge">{{entry.code}}</span> - {{entry.text | slice:0:50}}...
             </div>
+          </div>
         </div>
     </div>
     <catalogue-entry [catalogueEntry]="selectedCatalogueEntry"></catalogue-entry>
+
+
 
 </div>
 

@@ -1,0 +1,7 @@
+
+<div *ngFor="let result of results"
+     class="search-result" >
+  <div (click)="showCatalogueEntry(entry)">
+    <span class="badge">{{result.code}}</span> - {{result.text | slice:0:50}}...
+  </div>
+</div>

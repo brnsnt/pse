@@ -2,7 +2,7 @@ import "rxjs/add/operator/switchMap";
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute, Params} from "@angular/router";
 import {Location} from "@angular/common";
-import {CatalogueSearchService} from "./catalogue-search.service";
+import {CatalogueSearchService} from "../../services/catalogue-search.service";
 import "rxjs/add/observable/of";
 import "rxjs/add/operator/catch";
 import "rxjs/add/operator/debounceTime";
@@ -10,8 +10,8 @@ import "rxjs/add/operator/distinctUntilChanged";
 import {Observable} from "rxjs/Observable";
 import {Subject} from "rxjs/Subject";
 import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
-import {Catalogue} from "../../shared/catalogue";
-import {CatalogueService} from "../../shared/catalogue.service";
+import {Catalogue} from "../../model/catalogue";
+import {CatalogueService} from "../../services/catalogue.service";
 
 @Component({
   moduleId: module.id,
@@ -86,6 +86,7 @@ export class CatalogueSearchComponent implements OnInit {
       .switchMap((params: Params) =>{
         return this.catalogueService.getCatalogue(params['domain'])})
       .subscribe(catalogue => {
+
         this.catalogue = catalogue
         this.setupSearch()
       });
@@ -99,7 +100,7 @@ export class CatalogueSearchComponent implements OnInit {
 
     this.searchTerms = new Subject<string>();
     this.catalogueEntries = this.searchTerms
-      .debounceTime(150)        // wait 300ms after each keystroke before considering the term
+      .debounceTime(300)        // wait 300ms after each keystroke before considering the term
       .distinctUntilChanged()   // ignore if next search term is same as previous
       .switchMap(term => this.doSearch(term))  // switch to new observable each time the term changes
       .catch(error => this.handleSearchError(error));

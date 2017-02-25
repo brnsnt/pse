@@ -1,1 +1,12 @@
-<search-form></search-form>
+<nav>
+  <a *ngFor="let cat of catalogues" (click)="select(cat)">{{cat.tag}}</a>
+</nav>
+
+<div *ngIf="selectedCatalogue">
+  <search-form [catalogue]="selectedCatalogue" (searchRequest)="handleSearchSubmitted($event)"></search-form>
+</div>
+
+<div *ngIf="searchResults">
+  <search-result [results]="searchResults" ></search-result>
+</div>
+

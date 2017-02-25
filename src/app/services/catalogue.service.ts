@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Catalogue, CATALOGUES} from "./catalogue";
+import {Catalogue, CATALOGUES} from "../model/catalogue";
 
 
 @Injectable()

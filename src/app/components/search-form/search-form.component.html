@@ -1,17 +1,16 @@
-<div *ngIf="catalogue">
+<div class="wrapper" *ngIf="catalogue">
 
-<h1>{{catalogue.tag}} {{catalogue.name}}</h1>
 
 <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="catalogue">
+    <div class="badge">{{catalogue.tag}}</div> {{catalogue.name}}
 
-  <div class="form-group">
-    <label class="center-block">Version
-      <select class="form-control" formControlName="version">
+  <span class="form-group">
+      <select  formControlName="version">
         <option *ngFor="let version of versions" [value]="version">{{version}}</option>
       </select>
-    </label>
-  </div>
-
+  </span>
+</div>
   <div class="form-group">
     <label class="center-block">Search Text:
       <input class="form-control" formControlName="searchTerm">

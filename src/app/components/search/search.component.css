@@ -1,16 +1,20 @@
 
 nav a:hover {
   cursor: pointer;
-  background-color: #BBD8DC !important;
-  color: white;
+  background-color: #EEE !important;
+  color: #289dcc;
 }
-
+nav {
+  width:300px;
+  margin:auto;
+  padding: 1em;
+}
 nav a {
   display: inline-block;
   font-size: small;
-  color: white;
+  color: #EEE;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
+  background-color: #289dcc;
   line-height: 1em;
   position: relative;
   left: -1px;
@@ -18,4 +22,25 @@ nav a {
   height: 1.8em;
   margin-right: .8em;
   border-radius: 4px;
+}
+ .search {
+   color: #289dcc;
+   margin:1em;
+   position: relative;
+   left:1em;
+ }
+.results{
+  margin: auto;
+  width:500px;
+  border-radius: 4px;
+}
+
+wrapper {
+  max-width: 700px;
+  margin: auto;
+}
+
+.searchForm{
+  max-width: 500px;
+  margin: auto;
 }

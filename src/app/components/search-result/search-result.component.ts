@@ -1,5 +1,6 @@
 import {Component, OnInit, Input, OnChanges} from '@angular/core';
 import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
+import {Result} from "../../model/result";
 
 @Component({
   selector: 'search-result',
@@ -7,7 +8,8 @@ import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
   styleUrls: ['search-result.component.css']
 })
 export class SearchResultComponent implements OnChanges {
-  @Input() results:CatalogueEntry[];
+  @Input() results: CatalogueEntry[];
+
   constructor() { }
 
   ngOnChanges() {

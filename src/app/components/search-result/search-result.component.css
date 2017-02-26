@@ -1,0 +1,15 @@
+.results{
+  background-color: #EEE;
+  margin: auto;
+  width:500px;
+  border-radius: 4px;
+}
+
+.code {
+  color:#289dcc;
+  padding: 0.5em;
+}
+
+.results p {
+  padding:0 0.5em 0.5em 0.5em;
+}

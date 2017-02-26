@@ -21,7 +21,7 @@ export class SearchFormComponent implements OnChanges {
   versions: string[] = [];
 
   onSubmit():void {
-    this.searchRequest.emit(this.searchForm.value) //emit the search object as event
+    this.searchRequest.emit(this.searchForm.value) //emit the search as event
   }
 
   /**
@@ -36,15 +36,17 @@ export class SearchFormComponent implements OnChanges {
   }
 
   /**
-   * Reset form values.
+   * Update version choices and set search form values.
    */
   ngOnChanges() {
-    //called when Input value changes.
+    //called when the Input value changes.
     this.versions = this.catalogue.versions //set versions
-    this.createForm()
+
+    if (!this.searchForm) this.createForm()
+
     this.searchForm.setValue({
       catalogue: this.catalogue,
-      version: this.versions[this.versions.length-1] || '', // select a version
+      version: this.versions[this.versions.length-1], // select a version
       searchTerm: ''
     });
   }

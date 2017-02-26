@@ -1,12 +1,29 @@
+<div class="wrapper">
 <nav>
-  <a *ngFor="let cat of catalogues" (click)="select(cat)">{{cat.tag}}</a>
+  <a *ngFor="let catalogue of catalogues"
+     (click)="select(catalogue)">{{catalogue.tag}}</a>
 </nav>
 
-<div *ngIf="selectedCatalogue">
-  <search-form [catalogue]="selectedCatalogue" (searchRequest)="handleSearchSubmitted($event)"></search-form>
+<div *ngIf="selectedCatalogue" class="seachForm">
+  <search-form [catalogue]="selectedCatalogue"
+               (searchRequest)="handleSearchSubmitted($event)"></search-form>
 </div>
 
-<div *ngIf="searchResults">
-  <search-result [results]="searchResults" ></search-result>
-</div>
+<div *ngIf="search">
+  <div class="search">
+    {{search.catalogue.tag }} ({{search.version}}) : {{search.searchTerm}}
+  </div>
 
+  <div [ngSwitch]="searchResults">
+    <div *ngSwitchCase="false">
+      <span *ngIf="searchSubmitted">No results found...</span>
+    </div >
+
+    <div *ngSwitchDefault>
+      <search-result [results]="searchResults"></search-result>
+    </div>
+
+  </div>
+
+</div>
+</div>

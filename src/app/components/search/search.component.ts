@@ -1,10 +1,7 @@
-import {Component, OnInit, OnChanges} from '@angular/core';
+import {Component} from "@angular/core";
 import {CatalogueSearchService} from "../../services/catalogue-search.service";
-import {CatalogueService} from "../../services/catalogue.service";
-import {ActivatedRoute, Params} from "@angular/router";
 import {Catalogue, CATALOGUES} from "../../model/catalogue";
 import {Search} from "../../model/search";
-import {Observable} from "rxjs";
 import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
 
 @Component({
@@ -15,23 +12,47 @@ import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
 })
 
 export class SearchComponent {
-  selectedCatalogue:Catalogue;
+
   catalogues: Catalogue[] = CATALOGUES;
 
-  searchResults: CatalogueEntry[];
-  constructor(private catalogueService: CatalogueService,
-              private route: ActivatedRoute,
-              private catalogueSearchService: CatalogueSearchService,
-  ) { }
+  search:Search;                   //Output from search-form component
+  selectedCatalogue: Catalogue;    //Input for search-form component
+  searchResults: CatalogueEntry[]; //Input for search-result component
+  searchSubmitted = false;         //already searched in the selected catalogue ?
 
-  public select(catalogue:Catalogue) {
-    this.selectedCatalogue = catalogue;
+  /**
+   * @constructor
+   * @param {CatalogueSearchService} catalogueSearchService
+   */
+  constructor(private catalogueSearchService: CatalogueSearchService,) {
   }
 
-  public handleSearchSubmitted(search:Search): void {
+  /**
+   * Set catalogue as input for search-form component.
+   * @param {Catalogue} catalogue
+   */
+  public select(catalogue: Catalogue): void {
+    this.selectedCatalogue = catalogue;
+    this.searchSubmitted = false;
+    this.search = undefined;
+  }
 
-    this.catalogueSearchService.getResults(search).subscribe(
-      catalogueEntries => this.searchResults = catalogueEntries
-    );
+  /**
+   * Request and subscribe to the search results.
+   * @param {Search} search
+   */
+  public handleSearchSubmitted(search: Search): void {
+    this.search = search;
+    this.catalogueSearchService.getResults(search)
+      .subscribe(results => this.setResults(results));
+  }
+
+  /**
+   * Set results as input for search-result component.
+   * @param {CatalogueEntry[]} results
+   */
+  private setResults(results: CatalogueEntry[] ): void {
+    this.searchResults = results;
+    this.searchSubmitted = true;
   }
 }

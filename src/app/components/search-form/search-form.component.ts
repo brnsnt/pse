@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, Output, EventEmitter} from "@angular/core";
-import {Search} from "../../model/search";
+import {SearchRequest} from "../../model/search-request";
 import {Catalogue} from "../../model/catalogue";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 
@@ -9,10 +9,14 @@ import {FormGroup, FormBuilder, Validators} from "@angular/forms";
   templateUrl: 'search-form.component.html'
 })
 
+/**
+ * 1. Display a form to select the catalogue version and enter a search text.
+ * 2. Output on submit a search request with the form values to the parent component.
+ */
 export class SearchFormComponent implements OnChanges {
 
   @Input() catalogue:Catalogue;
-  @Output() searchRequest:EventEmitter<Search> = new EventEmitter<Search>();
+  @Output() searchRequest:EventEmitter<SearchRequest> = new EventEmitter<SearchRequest>();
 
   constructor(private fb: FormBuilder,) {}
 
@@ -20,8 +24,11 @@ export class SearchFormComponent implements OnChanges {
 
   versions: string[] = [];
 
+  /**
+   * Emit the values of the search form as event.
+   */
   onSubmit():void {
-    this.searchRequest.emit(this.searchForm.value) //emit the search as event
+    this.searchRequest.emit(this.searchForm.value)
   }
 
   /**
@@ -50,8 +57,5 @@ export class SearchFormComponent implements OnChanges {
       searchTerm: ''
     });
   }
-
-
-
 }
 

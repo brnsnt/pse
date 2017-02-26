@@ -1,18 +1,17 @@
-import {Component, OnInit, Input, OnChanges} from '@angular/core';
-import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
-import {Result} from "../../model/result";
+import {Component, Input} from '@angular/core';
+import {SearchResult} from "../../model/search-result";
 
 @Component({
   selector: 'search-result',
   templateUrl: 'search-result.component.html',
   styleUrls: ['search-result.component.css']
 })
-export class SearchResultComponent implements OnChanges {
-  @Input() results: CatalogueEntry[];
+
+/**
+ * Display the search results.
+ */
+export class SearchResultComponent {
+  @Input() results: SearchResult[];
 
   constructor() { }
-
-  ngOnChanges() {
-  }
-
 }

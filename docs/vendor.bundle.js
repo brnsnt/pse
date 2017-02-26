@@ -8111,7 +8111,7 @@ var DirectiveWrapperCompiler = (function () {
         return new DirectiveWrapperCompileResult([classStmt], classStmt.name);
     };
     DirectiveWrapperCompiler = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_4__config__["a" /* CompilerConfig */], __WEBPACK_IMPORTED_MODULE_5__expression_parser_parser__["a" /* Parser */], __WEBPACK_IMPORTED_MODULE_13__schema_element_schema_registry__["a" /* ElementSchemaRegistry */], __WEBPACK_IMPORTED_MODULE_12__private_import_core__["F" /* Console */]])
     ], DirectiveWrapperCompiler);
     return DirectiveWrapperCompiler;
@@ -9607,7 +9607,7 @@ var HtmlParser = (function (_super) {
         return _super.prototype.parse.call(this, source, url, parseExpansionForms, interpolationConfig);
     };
     HtmlParser = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [])
     ], HtmlParser);
     return HtmlParser;
@@ -10028,7 +10028,7 @@ var UrlResolver = (function () {
         { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* Inject */], args: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* PACKAGE_ROOT_URL */],] },] },
     ]; };
     UrlResolver = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [String])
     ], UrlResolver);
     return UrlResolver;
@@ -11653,7 +11653,7 @@ var Parser = (function () {
         return errLocation.length;
     };
     Parser = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_5__lexer__["c" /* Lexer */]])
     ], Parser);
     return Parser;
@@ -15770,7 +15770,7 @@ var DirectiveNormalizer = (function () {
         return new __WEBPACK_IMPORTED_MODULE_1__compile_metadata__["l" /* CompileStylesheetMetadata */]({ styles: allStyles, styleUrls: allStyleUrls, moduleUrl: stylesheet.moduleUrl });
     };
     DirectiveNormalizer = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_8__resource_loader__["a" /* ResourceLoader */], __WEBPACK_IMPORTED_MODULE_11__url_resolver__["a" /* UrlResolver */], __WEBPACK_IMPORTED_MODULE_6__ml_parser_html_parser__["a" /* HtmlParser */], __WEBPACK_IMPORTED_MODULE_2__config__["a" /* CompilerConfig */]])
     ], DirectiveNormalizer);
     return DirectiveNormalizer;
@@ -16078,7 +16078,7 @@ var DirectiveResolver = (function () {
         }
     };
     DirectiveResolver = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_4__private_import_core__["K" /* ReflectorReader */]])
     ], DirectiveResolver);
     return DirectiveResolver;
@@ -16163,7 +16163,7 @@ var Lexer = (function () {
         return tokens;
     };
     Lexer = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [])
     ], Lexer);
     return Lexer;
@@ -17661,7 +17661,7 @@ var CompileMetadataResolver = (function () {
         { type: undefined, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Optional */] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* Inject */], args: [ERROR_COLLECTOR_TOKEN,] },] },
     ]; };
     CompileMetadataResolver = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_8__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_10__ng_module_resolver__["a" /* NgModuleResolver */], __WEBPACK_IMPORTED_MODULE_5__directive_resolver__["a" /* DirectiveResolver */], __WEBPACK_IMPORTED_MODULE_11__pipe_resolver__["a" /* PipeResolver */], __WEBPACK_IMPORTED_MODULE_14__summary_resolver__["a" /* SummaryResolver */], __WEBPACK_IMPORTED_MODULE_13__schema_element_schema_registry__["a" /* ElementSchemaRegistry */], __WEBPACK_IMPORTED_MODULE_4__directive_normalizer__["a" /* DirectiveNormalizer */], __WEBPACK_IMPORTED_MODULE_12__private_import_core__["K" /* ReflectorReader */], Function])
     ], CompileMetadataResolver);
     return CompileMetadataResolver;
@@ -17875,7 +17875,7 @@ var NgModuleResolver = (function () {
         }
     };
     NgModuleResolver = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_4__private_import_core__["K" /* ReflectorReader */]])
     ], NgModuleResolver);
     return NgModuleResolver;
@@ -17969,7 +17969,7 @@ var PipeResolver = (function () {
         return null;
     };
     PipeResolver = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_4__private_import_core__["K" /* ReflectorReader */]])
     ], PipeResolver);
     return PipeResolver;
@@ -18264,7 +18264,7 @@ var TemplateParser = (function () {
         { type: Array, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Optional */] }, { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* Inject */], args: [TEMPLATE_TRANSFORMS,] },] },
     ]; };
     TemplateParser = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_2__expression_parser_parser__["a" /* Parser */], __WEBPACK_IMPORTED_MODULE_15__schema_element_schema_registry__["a" /* ElementSchemaRegistry */], __WEBPACK_IMPORTED_MODULE_4__i18n_i18n_html_parser__["a" /* I18NHtmlParser */], __WEBPACK_IMPORTED_MODULE_13__private_import_core__["F" /* Console */], Array])
     ], TemplateParser);
     return TemplateParser;
@@ -19136,7 +19136,7 @@ var ViewCompiler = (function () {
         return new ViewCompileResult(statements, view.classExpr.name, dependencies);
     };
     ViewCompiler = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_0__config__["a" /* CompilerConfig */], __WEBPACK_IMPORTED_MODULE_2__schema_element_schema_registry__["a" /* ElementSchemaRegistry */]])
     ], ViewCompiler);
     return ViewCompiler;
@@ -24161,7 +24161,7 @@ var AnimationParser = (function () {
         return new AnimationEntryParseResult(ast, errors);
     };
     AnimationParser = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_6__schema_element_schema_registry__["a" /* ElementSchemaRegistry */]])
     ], AnimationParser);
     return AnimationParser;
@@ -25398,7 +25398,7 @@ var NgModuleCompiler = (function () {
         return new NgModuleCompileResult(stmts, ngModuleFactoryVar, deps);
     };
     NgModuleCompiler = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [])
     ], NgModuleCompiler);
     return NgModuleCompiler;
@@ -26059,7 +26059,7 @@ var DomElementSchemaRegistry = (function (_super) {
         return { error: errorMsg, value: strVal + unit };
     };
     DomElementSchemaRegistry = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [])
     ], DomElementSchemaRegistry);
     return DomElementSchemaRegistry;
@@ -26749,7 +26749,7 @@ var StyleCompiler = (function () {
         return shim ? this._shadowCss.shimCssText(style, CONTENT_ATTR, HOST_ATTR) : style;
     };
     StyleCompiler = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_5__url_resolver__["a" /* UrlResolver */]])
     ], StyleCompiler);
     return StyleCompiler;
@@ -37866,7 +37866,7 @@ var SummaryResolver = (function () {
      */
     SummaryResolver.prototype.getSymbolsOf = function (filePath) { return []; };
     SummaryResolver = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [])
     ], SummaryResolver);
     return SummaryResolver;
@@ -43339,7 +43339,7 @@ function RequestOptions_tsickle_Closure_declarations() {
      */
     RequestOptions.prototype.url;
     /**
-     * Search parameters to be included in a {\@link Request}.
+     * SearchRequest parameters to be included in a {\@link Request}.
      * @type {?}
      */
     RequestOptions.prototype.search;
@@ -50174,7 +50174,7 @@ var JitCompiler = (function () {
         }
     };
     JitCompiler = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injector */], __WEBPACK_IMPORTED_MODULE_8__metadata_resolver__["a" /* CompileMetadataResolver */], __WEBPACK_IMPORTED_MODULE_14__template_parser_template_parser__["a" /* TemplateParser */], __WEBPACK_IMPORTED_MODULE_13__style_compiler__["a" /* StyleCompiler */], __WEBPACK_IMPORTED_MODULE_16__view_compiler_view_compiler__["d" /* ViewCompiler */], __WEBPACK_IMPORTED_MODULE_9__ng_module_compiler__["a" /* NgModuleCompiler */], __WEBPACK_IMPORTED_MODULE_5__directive_wrapper_compiler__["a" /* DirectiveWrapperCompiler */], __WEBPACK_IMPORTED_MODULE_4__config__["a" /* CompilerConfig */], __WEBPACK_IMPORTED_MODULE_2__animation_animation_parser__["a" /* AnimationParser */]])
     ], JitCompiler);
     return JitCompiler;
@@ -68922,7 +68922,7 @@ var JitCompilerFactory = (function () {
         { type: Array, decorators: [{ type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["h" /* Inject */], args: [__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* COMPILER_OPTIONS */],] },] },
     ]; };
     JitCompilerFactory = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__injectable__["a" /* CompilerInjectable */])(), 
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9__injectable__["a" /* CompilerInjectable */])(),
         __metadata('design:paramtypes', [Array])
     ], JitCompilerFactory);
     return JitCompilerFactory;

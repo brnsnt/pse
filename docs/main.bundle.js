@@ -398,7 +398,7 @@ var CatalogueEntryComponent = (function () {
     }
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["d" /* Input */])(), 
-        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__catalogue_entry__["a" /* CatalogueEntry */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__catalogue_entry__["a" /* CatalogueEntry */]) === 'function' && _a) || Object)
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__catalogue_entry__["a" /* SearchResult */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_6__catalogue_entry__["a" /* SearchResult */]) === 'function' && _a) || Object)
     ], CatalogueEntryComponent.prototype, "catalogueEntry", void 0);
     CatalogueEntryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["e" /* Component */])({

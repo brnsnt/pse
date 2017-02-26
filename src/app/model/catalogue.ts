@@ -1,9 +1,10 @@
+/**
+ * Model for a catalogue from the api.
+ */
 export class Catalogue {
   tag: string;
   name: string;
   domain: string;
-
-  //TODO get dynamic
   versions: string[];
 }
 

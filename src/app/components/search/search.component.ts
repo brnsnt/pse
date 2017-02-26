@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 import {CatalogueSearchService} from "../../services/catalogue-search.service";
 import {Catalogue, CATALOGUES} from "../../model/catalogue";
-import {Search} from "../../model/search";
-import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
+import {SearchRequest} from "../../model/search-request";
+import {SearchResult} from "../../model/search-result";
 
 @Component({
   moduleId: module.id,
@@ -11,13 +11,18 @@ import {CatalogueEntry} from "../catalogue-entry/catalogue-entry";
   styleUrls: ['search.component.css']
 })
 
+/**
+ * 1. Let a user select a catalogue and open a search-form component.
+ * 2. Handle the submit event from the search form and get the results from the search service.
+ * 3. Add search-results component to display the results.
+ */
 export class SearchComponent {
 
   catalogues: Catalogue[] = CATALOGUES;
 
-  search:Search;                   //Output from search-form component
+  search:SearchRequest;                   //Output from search-form component
   selectedCatalogue: Catalogue;    //Input for search-form component
-  searchResults: CatalogueEntry[]; //Input for search-result component
+  searchResults: SearchResult[]; //Input for search-result component
   searchSubmitted = false;         //already searched in the selected catalogue ?
 
   /**
@@ -39,9 +44,9 @@ export class SearchComponent {
 
   /**
    * Request and subscribe to the search results.
-   * @param {Search} search
+   * @param {SearchRequest} search
    */
-  public handleSearchSubmitted(search: Search): void {
+  public handleSearchSubmitted(search: SearchRequest): void {
     this.search = search;
     this.catalogueSearchService.getResults(search)
       .subscribe(results => this.setResults(results));
@@ -49,9 +54,9 @@ export class SearchComponent {
 
   /**
    * Set results as input for search-result component.
-   * @param {CatalogueEntry[]} results
+   * @param {SearchResult[]} results
    */
-  private setResults(results: CatalogueEntry[] ): void {
+  private setResults(results: SearchResult[] ): void {
     this.searchResults = results;
     this.searchSubmitted = true;
   }
